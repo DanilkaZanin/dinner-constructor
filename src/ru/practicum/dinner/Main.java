@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 public class Main {
 
-    static DinnerConstructor dc;
-    static Scanner scanner;
+    private static DinnerConstructor dc;
+    private static Scanner scanner;
 
     public static void main(String[] args) {
         dc = new DinnerConstructor();
@@ -42,7 +42,7 @@ public class Main {
         System.out.println("Введите название блюда:");
         String dishName = scanner.nextLine();
 
-        dc.addNewDish(dishType,dishName);
+        dc.addNewDish(dishType, dishName);
     }
 
     private static void generateDishCombo() {
@@ -59,10 +59,10 @@ public class Main {
 
         //реализуйте ввод типов блюд
         while (!nextItem.isEmpty()) {
-            if(dc.doesTheTypeExist(nextItem))
+            if (dc.doesTheTypeExist(nextItem))
                 types.add(nextItem);
             else
-                System.out.println("К сожалению типа "+ nextItem +  " нет, пожалуйста введите другой.");
+                System.out.println("К сожалению типа " + nextItem + " нет, пожалуйста введите другой.");
 
             nextItem = scanner.nextLine();
         }
@@ -70,9 +70,12 @@ public class Main {
         printDishCombos(dc.getDishCombos(numberOfCombos, types));
     }
 
-    private static void printDishCombos(ArrayList<ArrayList<String>> dishCombos){
+    /**
+     * Вывод комбинаций в консоль.
+     */
+    private static void printDishCombos(ArrayList<ArrayList<String>> dishCombos) {
         int i = 0;
-        for (ArrayList<String> combo : dishCombos){
+        for (ArrayList<String> combo : dishCombos) {
             i++;
             System.out.println("Комбинация " + i);
             System.out.println(combo);
